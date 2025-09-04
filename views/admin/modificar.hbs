@@ -1,0 +1,49 @@
+<div class="container" style="margin: 50px auto">
+    <div class="row">
+        <div class="col-6 offset-3 text-primary-emphasis">
+            <h4 class="text-primary-emphasis">Modificar la novedad N° {{cervezas.id}}</h4>
+            <p class="fst-italic">(Puede reemplazar la imagen actual o bien eliminarla)</p>
+            <form action="/admin/cervezas/modificar" method="post" enctype="multipart/form-data">
+                <input type="hidden" value="{{cervezas.id}}" name="id">
+
+                <div class="form-group mb-3 row">
+                    <input type="text" placeholder="Nombre" value="{{cervezas.nombre}}" class="form-control" name="nombre">
+                </div>
+
+                <div class="form-group mb-3 row">
+                    <input type="text" placeholder="ABV" value="{{cervezas.ABV}}" class="form-control" name="abv">
+                </div>
+
+                <div class="form-group mb-3 row">
+                    <input type="text" placeholder="IBU" value="{{cervezas.IBU}}" class="form-control" name="ibu">
+                </div>
+
+                <div class="form-group mb-3 row">
+                    <textarea placeholder="Descripcion" class="form-control" name="descripcion">{{cervezas.descripcion}}</textarea>
+                </div>
+
+                <div class="form-group mb-3 row">
+                    <textarea placeholder="Proceso" class="form-control" name="proceso">{{cervezas.proceso}}</textarea>
+                </div>
+
+                <div class="form-group mb-3 row">
+                    <label for="formFile" class="form-label fs-5 text">Subir Imagen <input class="form-control mt-1" type="file" name="imagen" id="imagen formFile"
+                            accept="image/png, image/jpeg, image/jpg" /></label>
+                    <label class="fs-7 text-danger"><input type="checkbox" name="img_delete" id="img_delete" value="1" /> Borrar Imagen</label>
+                    <input type="hidden" name="img_original" value="{{cervezas.imagen}}" />
+                </div>
+
+                <hr>
+                <button type="submit" class="btn btn-primary mt-2">Modificar <i class="fa-solid fa-pen-to-square"></i></button>
+                <a class="btn btn-primary mt-2" href='/admin/cervezas'><i class="fa-solid fa-left-long"></i> Volver</a>
+
+
+            </form>
+            {{#if error}}
+            <p>{{message}}</p>
+            {{/if}}
+
+
+        </div>
+    </div>
+</div>

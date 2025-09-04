@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-6 offset-3 text-primary-emphasis">
+            <h4 class="text-primary-emphasis">Agregar una nueva cerveza</h4>
+            <form action="/admin/cervezas/agregar" method="post" enctype="multipart/form-data">
+                <div class="mb-3 row">
+                    <input type="text" class="form-control" placeholder="Nombre" name="nombre">
+                </div>
+                <div class="mb-3 row">
+                    <input type="text" class="form-control" placeholder="ABV" name="abv">
+                </div>
+                <div class="mb-3 row">
+                    <input type="text" class="form-control" placeholder="IBU" name="ibu">
+                </div>
+                <div class="mb-3 row">
+                    <textarea type="text" class="form-control" placeholder="Descripcion" name="descripcion"></textarea>
+                </div>
+                <div class="mb-3 row">
+                    <textarea type="text" class="form-control" placeholder="Proceso" name="proceso"></textarea>
+                </div>
+                <div>
+                    <label for="formFile" class="form-label">Subir Imagen <input class="form-control mt-1" type="file"
+                            name="imagen" id="imagen formFile" accept="image/png, image/jpeg, image/jpg" /></label>
+                </div>
+                <button class="btn btn-primary focus-ring focus-ring-success"><i class="fa-solid fa-database"></i> GUARDAR</button>
+                
+            </form>
+
+            <hr>
+
+            <a class="btn btn-primary mb-5 focus-ring focus-ring-warning py-1 px-2 text-decoration-none border rounded-2" href='/admin/cervezas'><i class="fa-solid fa-left-long"></i> Volver</a>
+            {{#if error}}
+            <p class='text-danger fs-3 text'>{{message}} !</p>
+            {{/if}}
+
+        </div>
+    </div>
+</div>
